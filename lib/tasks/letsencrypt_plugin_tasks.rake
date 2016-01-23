@@ -54,7 +54,7 @@ task letsencrypt_plugin: :setup_logger do
       ch = LetsencryptPlugin::Challenge.new
       ch.save!(response: challenge.file_content)
     else
-      ch.update(response: challenge.file_content)
+      ch.update_attributes(response: challenge.file_content)
     end
     sleep(2)
   end
