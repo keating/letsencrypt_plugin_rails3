@@ -49,6 +49,8 @@ task letsencrypt_plugin: :setup_logger do
 
   def store_challenge(challenge)
     Rails.logger.info('Storing challenge information...')
+    Rails.logger.info(challenge.file_content.to_s)
+    Rails.logger.info('Challenge information saved...')
     ch = LetsencryptPlugin::Challenge.first
     if ch.nil?
       ch = LetsencryptPlugin::Challenge.new
